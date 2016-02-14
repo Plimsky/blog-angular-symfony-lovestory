@@ -7,7 +7,7 @@ $scriptCommun = <<SCRIPT
 echo "[Common] Update system..."
         apt-get update -y
         apt-get upgrade -y
-        apt-get install -y -f vim nano wget curl htop telnet rsync lynx
+        apt-get install -y -f vim nano wget curl htop telnet rsync lynx emacs
 
     echo "[Apache/PHP/Mysql] Install..."
         echo mysql-server mysql-server/root_password password root | sudo debconf-set-selections
@@ -41,7 +41,7 @@ echo "[Common] Update system..."
         chmod a+x /usr/local/bin/symfony
 
     echo "[NodeJs] Prepare..."
-            curl -sL https://deb.nodesource.com/setup_4.x | bash -
+            curl -sL https://deb.nodesource.com/setup_5.x | bash -
             apt-get install -y nodejs
             npm cache clean
             npm install npm -g
