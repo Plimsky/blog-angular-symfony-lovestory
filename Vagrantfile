@@ -107,7 +107,7 @@ echo "
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
     ProxyPreserveHost on
-    ProxyPass /api http://127.0.0.1:8089/api
+    ProxyPass /api http://127.0.0.1:8089
     DocumentRoot /var/www/Front/dist
     <Directory /var/www/Front/dist>
         Options FollowSymLinks MultiViews
