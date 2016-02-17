@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Doctrine\ORM\Query;
 use FOS\RestBundle\Controller\Annotations as Rest;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use FOS\RestBundle\Controller\FOSRestController;
 use AppBundle\Entity\Category;
@@ -26,6 +27,11 @@ class CategoryController extends FOSRestController
     {
         $em         = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('AppBundle:Category')->findAll();
+
+        // Can't get categories => 404 of course !
+        if ($categories === null) {
+            return new JsonResponse('No data found', 404);
+        }
 
         return $categories;
     }
@@ -51,6 +57,10 @@ class CategoryController extends FOSRestController
             $em->persist($category);
             $em->flush();
         }
+        else {
+            // Can't create category => 409 of course ! (conflict)
+            return new JsonResponse((string) $form->getErrors(true), 409);
+        }
 
         return $category;
     }
@@ -68,6 +78,11 @@ class CategoryController extends FOSRestController
     {
         $em       = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:Category')->find($id);
+
+        // No category to get => 404 of course !
+        if ($category === null) {
+            return new JsonResponse('No data found', 404);
+        }
 
         return $category;
     }
@@ -87,8 +102,13 @@ class CategoryController extends FOSRestController
         $em       = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:Category')->find($id);
 
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(CategoryType::class, $category, ['method' => 'PUT']);
         $form->handleRequest($request);
+
+        // No category to edit => 404 of course !
+        if ($category === null) {
+            return new JsonResponse('No data found', 404);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -113,10 +133,13 @@ class CategoryController extends FOSRestController
         $em       = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:Category')->find($id);
 
-        if ($category !== null) {
-            $em->remove($category);
-            $em->flush();
+        // No category to delete => 404 of course !
+        if ($category === null) {
+            return new JsonResponse('No data found', 404);
         }
+
+        $em->remove($category);
+        $em->flush();
 
         return $category;
     }
