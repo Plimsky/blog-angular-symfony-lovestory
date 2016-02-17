@@ -2,3 +2,8 @@ category:
     type: rest
     prefix: /
     resource: AppBundle\Controller\CategoryController
+
+article:
+    type: rest
+    prefix: /
+    resource: AppBundle\Controller\ArticleController
