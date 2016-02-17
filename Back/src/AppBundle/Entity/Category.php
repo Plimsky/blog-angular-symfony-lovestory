@@ -136,4 +136,17 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @param Article $article
+     * @return $this
+     */
+    public function removeArticle(Article $article)
+    {
+        if ($this->articles->contains($article)) {
+            $this->articles->removeElement($article);
+        }
+
+        return $this;
+    }
 }
