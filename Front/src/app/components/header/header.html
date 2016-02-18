@@ -8,9 +8,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
             <ul class="nav navbar-nav">
-                <li class="active"><a ng-href="#">Home</a></li>
-                <li><a ng-href="#">Articles</a></li>
-                <li><a ng-href="#">Categories</a></li>
+                <li><a ui-sref="blog">Home</a></li>
+                <li ui-sref-active="active"><a ng-href="#">Articles</a></li>
+                <li ui-sref-active="active"><a ui-sref="blog.categories">Categories</a></li>
             </ul>
         </div>
     </div>
