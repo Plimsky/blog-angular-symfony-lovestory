@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  angular
-    .module('front')
-    .config(routerConfig);
+    angular
+        .module('blog')
+        .config(routerConfig);
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {

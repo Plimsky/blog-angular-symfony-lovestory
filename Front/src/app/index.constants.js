@@ -1,10 +1,10 @@
 /* global malarkey:false, moment:false */
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('front')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    angular
+        .module('blog')
+        .constant('malarkey', malarkey)
+        .constant('moment', moment);
 
 })();
