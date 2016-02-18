@@ -19,21 +19,19 @@
         };
 
         this.new = function (category) {
-            blogCategoriesModel.new.query(category).$promise.then(function (data) {
-                self.category = data;
+            blogCategoriesModel.new.query(category).$promise.then(function () {
                 toastr.success('Category created with success');
             }, function (err) {
-                toastr.error('Something wrong happend : ' + err);
+                toastr.error('Something wrong happend');
             });
         };
 
         this.delete = function (id) {
-            blogCategoriesModel.delete.query({id: id}).$promise.then(function (data) {
-                self.category = data;
+            blogCategoriesModel.delete.query({id: id}).$promise.then(function () {
                 toastr.success('Category deleted with success');
                 self.list();
-            }, function (err) {
-                toastr.error('Something wrong happend : ' + err);
+            }, function () {
+                toastr.error('Something wrong happend');
             });
         };
     }

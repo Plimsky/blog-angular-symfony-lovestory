@@ -40,6 +40,24 @@
                     controllerAs: 'categoryEditCtrl'
                 }
             }
+        }).state('blog.articles', {
+            url:   'articles',
+            views: {
+                'content@': {
+                    templateUrl:  'app/components/articles/list/list-articles.html',
+                    controller:   'blogListArticlesController',
+                    controllerAs: 'articlesListCtrl'
+                }
+            }
+        }).state('blog.articles.edit', {
+            url:   '/edit',
+            views: {
+                'content@': {
+                    templateUrl:  'app/components/articles/edit/edit-article.html',
+                    controller:   'blogEditArticleController',
+                    controllerAs: 'articleEditCtrl'
+                }
+            }
         });
 
         $urlRouterProvider.otherwise('/');

@@ -1,0 +1,22 @@
+<div class="container">
+
+    <a ui-sref="blog.articles.edit" class="btn btn-primary">New Article</a>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="article in articlesService.articles">
+            <th>{{ article.id }}</th>
+            <td>{{ article.title }}</td>
+            <td>{{ article.category.title }}</td>
+            <td><div class="glyphicon glyphicon-remove clickable" ng-click="deleteArticle(article.id)"></div></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
