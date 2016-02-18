@@ -31,7 +31,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="blob")
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 
