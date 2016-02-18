@@ -28,7 +28,16 @@
                 'content@': {
                     templateUrl:  'app/components/categories/list/list-categories.html',
                     controller:   'blogListCategoriesController',
-                    controllerAs: 'categoriesCtrl'
+                    controllerAs: 'categoriesListCtrl'
+                }
+            }
+        }).state('blog.categories.edit', {
+            url:   '/edit',
+            views: {
+                'content@': {
+                    templateUrl:  'app/components/categories/edit/edit-category.html',
+                    controller:   'blogEditCategoryController',
+                    controllerAs: 'categoryEditCtrl'
                 }
             }
         });

@@ -1,0 +1,14 @@
+<div class="container">
+    <form novalidate>
+        <div class="form-group">
+            <label>Category title *</label>
+            <input type="text" class="form-control" ng-model="categoriesService.category.title" required/>
+        </div>
+        <div class="form-group">
+            <label>Category description</label>
+            <input type="text" class="form-control" ng-model="categoriesService.category.description"/>
+        </div>
+        <input type="button" class="btn btn-default" ng-click="resetForm()" value="Reset"/>
+        <input type="submit" class="btn btn-success" ng-click="newCategory(categoriesService.category)" value="Create"/>
+    </form>
+</div>
