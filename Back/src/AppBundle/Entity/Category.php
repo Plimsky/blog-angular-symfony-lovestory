@@ -38,7 +38,7 @@ class Category
 
     /**
      * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article", mappedBy="category", cascade={"remove"})
      */
     private $articles;
 
