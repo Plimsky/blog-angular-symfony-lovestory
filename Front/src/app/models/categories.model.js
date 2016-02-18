@@ -20,7 +20,7 @@
             edit:   $resource('/api/categories', {}, {
                 query: {method: 'PATCH', params: {}, isArray: false}
             }),
-            remove: $resource('/api/categories/:id', {}, {
+            delete: $resource('/api/categories/:id', {}, {
                 query: {method: 'DELETE', params: {id: '@id'}, isArray: false}
             })
         };

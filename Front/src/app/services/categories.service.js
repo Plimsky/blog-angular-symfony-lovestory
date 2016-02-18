@@ -23,7 +23,17 @@
                 self.category = data;
                 toastr.success('Category created with success');
             }, function (err) {
-                toastr.error('Something wrong happend : ' + err.message);
+                toastr.error('Something wrong happend : ' + err);
+            });
+        };
+
+        this.delete = function (id) {
+            blogCategoriesModel.delete.query({id: id}).$promise.then(function (data) {
+                self.category = data;
+                toastr.success('Category deleted with success');
+                self.list();
+            }, function (err) {
+                toastr.error('Something wrong happend : ' + err);
             });
         };
     }

@@ -15,6 +15,7 @@
             <th>{{ category.id }}</th>
             <td>{{ category.title }}</td>
             <td>{{ category.description }}</td>
+            <td><div class="glyphicon glyphicon-remove clickable" ng-click="deleteCategory(category.id)"></div></td>
         </tr>
         </tbody>
     </table>

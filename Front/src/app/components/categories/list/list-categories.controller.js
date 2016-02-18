@@ -13,6 +13,10 @@
             blogCategoriesService.list();
         };
 
+        $scope.deleteCategory = function (id) {
+            blogCategoriesService.delete(id);
+        };
+
         $scope.listCategories();
     }
 })();
