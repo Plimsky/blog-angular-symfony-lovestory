@@ -22,7 +22,16 @@
                         controllerAs: 'main'
                     }
                 }
-            });
+            }).state('blog.categories', {
+            url:   'categories',
+            views: {
+                'content@': {
+                    templateUrl:  'app/components/categories/list/list-categories.html',
+                    controller:   'blogListCategoriesController',
+                    controllerAs: 'categoriesCtrl'
+                }
+            }
+        });
 
         $urlRouterProvider.otherwise('/');
     }
